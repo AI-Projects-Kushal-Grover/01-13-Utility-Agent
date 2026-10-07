@@ -3,7 +3,7 @@ from collections.abc import Callable
 from models.tools import TOOL_CATEGORY
 from tools import calculator, currency, date_calculator, weather
 
-TOOL_FUNCTIONS: dict[TOOL_CATEGORY, Callable] = {
+TOOL_FUNCTIONS: dict[str, Callable] = {
     "calculator": calculator.calculator,
     "currency_converter": currency.currency,
     "date_calculator": date_calculator.date_calculator,
