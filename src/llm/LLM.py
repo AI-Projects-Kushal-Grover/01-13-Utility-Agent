@@ -18,12 +18,13 @@ class LLM():
             base_url=os.getenv("LLM_API_BASE_URL"),
         )
 
-    async def write(self, *, prompt: str, system_prompt: str, response_schema: Type[TResponse]) -> TResponse:
+    async def write(self, *, prompt: str, system_prompt: str, response_schema: Type[TResponse], additional_context: dict | None = None) -> TResponse:
         response = await self.client.create(
             messages=[
                 {"role": "system", "content": system_prompt.strip()},
                 {"role": "user", "content": prompt.strip()}
             ],
             response_model=response_schema,
+            context=additional_context
         )
         return response

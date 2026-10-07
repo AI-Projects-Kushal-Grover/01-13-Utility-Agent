@@ -6,7 +6,12 @@ SYSTEM_PROMPTS = {
     """.strip(),
     "answer_query": """
         Your job is to present the answer to the query in human readable textual format. The answer should be concise, clear, and directly address the query.
-        If the query is not recognized or cannot be answered, respond with "I'm sorry, I cannot answer that query.".
-        Utilize the provided query and computed result to generate the answer.
+        Utilize the provided query and computed tool result to generate the answer.
+        Do not try to compute the answer yourself; instead, rely on the computed tool result provided in the additional context.
+
+        For example, if the query is "What is 5 + 3?" and the computed result is "8", your answer should be "The result of 5 + 3 is 8.".
+        If the query is "Convert 100 USD to EUR" and the computed result is "85.50", your answer should be "100 USD is equivalent to 85.50 EUR.".
+        If the query is "What is the date 10 days after 2023-01-01?" and the computed result is "2023-01-11", your answer should be "The date 10 days after 2023-01-01 is 2023-01-11.".
+        If the query is "What is the weather in New York?" and the computed result is "The temperature is 15°C with clear skies.", your answer should be "The weather in New York is 15°C with clear skies.".
     """.strip()
 }
